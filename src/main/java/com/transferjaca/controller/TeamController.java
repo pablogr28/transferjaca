@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.transferjaca.model.Team;
+import com.transferjaca.service.PlayerService;
 import com.transferjaca.service.TeamService;
 
 import jakarta.validation.Valid;
@@ -21,20 +22,23 @@ public class TeamController {
 	
 	@Autowired
     private TeamService teamService;
+	
+	@Autowired
+    private PlayerService playerService;
 
-    // Listar equipos
-    @GetMapping
-    public String listTeams(Model model) {
-        model.addAttribute("team", teamService.findAll());
-        return "team/listTeam";
-    }
+	@GetMapping
+	public String listTeams(Model model) {
+	    model.addAttribute("teams", teamService.findAll());
+	    return "team/listTeam";
+	}
 
-    // Ver detalle de un equipo
-    @GetMapping("/{id}")
-    public String viewTeam(@PathVariable Long id, Model model) {
-        model.addAttribute("team", teamService.findById(id));
-        return "team/detailTeam";
-    }
+	@GetMapping("/{id}")
+	public String viewTeam(@PathVariable Long id, Model model) {
+	    Team team = teamService.findById(id);
+	    model.addAttribute("team", team);
+	    model.addAttribute("players", team.getPlayers()); 
+	    return "team/detailTeam";
+	}
 
     // Mostrar formulario para crear
     @GetMapping("/new")

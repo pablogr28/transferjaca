@@ -12,6 +12,7 @@
         <li class="list-group-item"><strong>Posición:</strong> <span th:text="${player.position}"></span></li>
         <li class="list-group-item"><strong>Edad:</strong> <span th:text="${player.age}"></span></li>
         <li class="list-group-item"><strong>Estatura:</strong> <span th:text="${player.stature}"></span> m</li>
+        <li class="list-group-item"><strong>Equipo:</strong> <span th:text="${player.team.getName()}"></span></li>
         <li class="list-group-item"><strong>Valor de Mercado:</strong> <span th:text="${player.marketValue}"></span> €</li>
         <li class="list-group-item"><strong>Pierna Fuerte:</strong> <span th:text="${player.footFavourite}"></span></li>
         <li class="list-group-item"><strong>Activo:</strong> <span th:text="${player.active} ? 'Sí' : 'No'"></span></li>

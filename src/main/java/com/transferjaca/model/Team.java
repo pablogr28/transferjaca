@@ -26,12 +26,12 @@ public class Team {
 	private String country;
 	
 	@Column(name="anio_fundacion")
-	private String yearFundation;
+	private Integer yearFundation;
 	
 	@OneToMany(mappedBy="team")
 	private List<Player> players;
 
-	public Team(Long id, String name, String country, String yearFundation) {
+	public Team(Long id, String name, String country, Integer yearFundation) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -67,12 +67,20 @@ public class Team {
 		this.country = country;
 	}
 
-	public String getYearFundation() {
+	public Integer getYearFundation() {
 		return yearFundation;
 	}
 
-	public void setYearFundation(String yearFundation) {
+	public void setYearFundation(Integer yearFundation) {
 		this.yearFundation = yearFundation;
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
 	}
 
 	@Override

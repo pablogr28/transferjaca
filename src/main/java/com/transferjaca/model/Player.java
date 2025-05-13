@@ -60,7 +60,7 @@ public class Player {
     private String footFavourite;
     
     @ManyToOne
-    @JoinColumn(name="idTeam")
+    @JoinColumn(name="equipo_id")
     private Team team;
 
 	public Player(Long id, String name, String position, boolean active, int age, double stature, double marketValue,
@@ -142,6 +142,14 @@ public class Player {
 
 	public void setFootFavourite(String footFavourite) {
 		this.footFavourite = footFavourite;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
 	@Override
