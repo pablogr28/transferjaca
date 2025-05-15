@@ -5,11 +5,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Contenedor principal con márgenes y padding -->
     <div class="container mt-5">
         <h2 class="text-center">Detalle del Equipo</h2>
 
-        <!-- Información del equipo -->
         <div class="row">
             <div class="col-md-4">
                 <p><strong>Nombre:</strong> <span th:text="${team.name}"></span></p>
@@ -18,7 +16,6 @@
             </div>
         </div>
 
-        <!-- Tabla de jugadores -->
         <h3 class="mt-4">Jugadores en este equipo:</h3>
         <table class="table table-bordered">
             <thead>
@@ -41,7 +38,6 @@
             </tbody>
         </table>
 
-        <!-- Enlace de retorno al listado -->
         <a th:href="@{/teams}" class="btn btn-primary">Volver al listado</a>
     </div>
 </body>
