@@ -75,9 +75,17 @@ public class Tournament {
 		this.year = year;
 	}
 
+	public List<PlayerTournament> getPlayerTournament() {
+		return playerTournament;
+	}
+
+	public void setPlayerTournament(List<PlayerTournament> playerTournament) {
+		this.playerTournament = playerTournament;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(country, id, name, year);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -89,9 +97,9 @@ public class Tournament {
 		if (getClass() != obj.getClass())
 			return false;
 		Tournament other = (Tournament) obj;
-		return Objects.equals(country, other.country) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(year, other.year);
+		return Objects.equals(id, other.id);
 	}
+
 	
 	
 

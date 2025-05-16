@@ -19,13 +19,11 @@ public class PlayerTournament {
 	@Id
     @ManyToOne
     @JoinColumn(name = "jugador_id")
-    @MapsId("player")
     private Player player;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "torneo_id")
-    @MapsId("tournament")
     private Tournament tournament;
 
 
@@ -92,7 +90,7 @@ public class PlayerTournament {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(asistences, goals, matchPlayed, player, tournament);
+		return Objects.hash(player, tournament);
 	}
 
 	@Override
@@ -104,10 +102,10 @@ public class PlayerTournament {
 		if (getClass() != obj.getClass())
 			return false;
 		PlayerTournament other = (PlayerTournament) obj;
-		return Objects.equals(asistences, other.asistences) && Objects.equals(goals, other.goals)
-				&& Objects.equals(matchPlayed, other.matchPlayed) && Objects.equals(player, other.player)
-				&& Objects.equals(tournament, other.tournament);
+		return Objects.equals(player, other.player) && Objects.equals(tournament, other.tournament);
 	}
+
+	
 
     
 }

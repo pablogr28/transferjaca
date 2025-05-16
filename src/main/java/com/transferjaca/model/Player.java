@@ -154,7 +154,7 @@ public class Player {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(active, age, footFavourite, id, marketValue, name, position, stature);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -166,13 +166,10 @@ public class Player {
 		if (getClass() != obj.getClass())
 			return false;
 		Player other = (Player) obj;
-		return active == other.active && age == other.age && Objects.equals(footFavourite, other.footFavourite)
-				&& Objects.equals(id, other.id)
-				&& Double.doubleToLongBits(marketValue) == Double.doubleToLongBits(other.marketValue)
-				&& Objects.equals(name, other.name) && Objects.equals(position, other.position)
-				&& Double.doubleToLongBits(stature) == Double.doubleToLongBits(other.stature);
+		return Objects.equals(id, other.id);
 	}
-    
+
+	
     
 	
     

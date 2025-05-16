@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.transferjaca.model.PlayerTournament;
+import com.transferjaca.model.Tournament;
 import com.transferjaca.repository.PlayerTournamentRepository;
 
 @Service
@@ -13,7 +14,7 @@ public class PlayerTournamentService {
     @Autowired
     private PlayerTournamentRepository playerTournamentRepository;
 
-    public List<PlayerTournament> findByTournamentId(Long id) {
-        return playerTournamentRepository.findByTournamentId(id);
+    public List<PlayerTournament> findByTournamentId(Tournament id) {
+        return playerTournamentRepository.findByTournament(id);
     }
 }
