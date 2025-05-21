@@ -3,6 +3,7 @@ package com.transferjaca.model;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -13,16 +14,18 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "jugadores_torneos")
-@IdClass(PlayerTournamentId.class)
 public class PlayerTournament {
 
-	@Id
+	@EmbeddedId
+    private PlayerTournamentId id;
+
     @ManyToOne
+    @MapsId("player")
     @JoinColumn(name = "jugador_id")
     private Player player;
 
-    @Id
     @ManyToOne
+    @MapsId("tournament")
     @JoinColumn(name = "torneo_id")
     private Tournament tournament;
 
@@ -31,20 +34,20 @@ public class PlayerTournament {
     private Integer goals;
     
     @Column(name="asistencias")
-    private Integer asistences;
+    private Integer assists;
     
     @Column(name="partidos_jugados")
     private Integer matchPlayed;
 
     public PlayerTournament() {}
 
-	public PlayerTournament(Player player, Tournament tournament, Integer goals, Integer asistences,
+	public PlayerTournament(Player player, Tournament tournament, Integer goals, Integer assists,
 			Integer matchPlayed) {
 		super();
 		this.player = player;
 		this.tournament = tournament;
 		this.goals = goals;
-		this.asistences = asistences;
+		this.assists = assists;
 		this.matchPlayed = matchPlayed;
 	}
 
@@ -72,14 +75,14 @@ public class PlayerTournament {
 		this.goals = goals;
 	}
 
-	public Integer getAsistences() {
-		return asistences;
-	}
+	public Integer getAssists() {
+        return assists;
+    }
 
-	public void setAsistences(Integer asistences) {
-		this.asistences = asistences;
-	}
-
+    public void setAssists(Integer assists) {
+        this.assists = assists;
+    }
+    
 	public Integer getMatchPlayed() {
 		return matchPlayed;
 	}

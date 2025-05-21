@@ -39,9 +39,6 @@ public class TournamentController {
         model.addAttribute("tournament", tournament);
 
         // Obtener los jugadores participantes de este torneo
-        //Tournament inma=new Tournament();
-       // inma.setId(id);
-       // List<PlayerTournament> playerTournaments = playerTournamentService.findByTournamentId(inma);
         List<PlayerTournament> playerTournaments = tournament.getPlayerTournament();
         model.addAttribute("playerTournaments", playerTournaments);
         

@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
+@Embeddable
 public class PlayerTournamentId implements Serializable{
 	
 	@Column(name="jugador_id")

@@ -1,5 +1,6 @@
 package com.transferjaca.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
@@ -62,6 +64,9 @@ public class Player {
     @ManyToOne
     @JoinColumn(name="equipo_id")
     private Team team;
+    
+    @OneToMany(mappedBy="player")
+    public List<Transfer> transferHistory;
 
 	public Player(Long id, String name, String position, boolean active, int age, double stature, double marketValue,
 			String footFavourite) {
@@ -150,6 +155,14 @@ public class Player {
 
 	public void setTeam(Team team) {
 		this.team = team;
+	}
+
+	public List<Transfer> getTransferHistory() {
+		return transferHistory;
+	}
+
+	public void setTransferHistory(List<Transfer> transferHistory) {
+		this.transferHistory = transferHistory;
 	}
 
 	@Override

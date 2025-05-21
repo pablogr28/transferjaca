@@ -30,6 +30,12 @@ public class Team {
 	
 	@OneToMany(mappedBy="team")
 	private List<Player> players;
+	
+	@OneToMany(mappedBy="fromTeam")
+	private List<Transfer> transferOut;
+	
+	@OneToMany(mappedBy="toTeam")
+	private List<Transfer> transferIn;
 
 	public Team(Long id, String name, String country, Integer yearFundation) {
 		super();
@@ -81,6 +87,22 @@ public class Team {
 
 	public void setPlayers(List<Player> players) {
 		this.players = players;
+	}
+
+	public List<Transfer> getTransferOut() {
+		return transferOut;
+	}
+
+	public void setTransferOut(List<Transfer> transferOut) {
+		this.transferOut = transferOut;
+	}
+
+	public List<Transfer> getTransferIn() {
+		return transferIn;
+	}
+
+	public void setTransferIn(List<Transfer> transferIn) {
+		this.transferIn = transferIn;
 	}
 
 	@Override

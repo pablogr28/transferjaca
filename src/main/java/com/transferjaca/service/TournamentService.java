@@ -31,5 +31,9 @@ public class TournamentService {
     public void deleteById(Long id) {
     	tournamentRepository.deleteById(id);
     }
+    
+    public List<Tournament> findByYear(Integer year){
+    	return tournamentRepository.findByYear(year);
+    }
 
 }

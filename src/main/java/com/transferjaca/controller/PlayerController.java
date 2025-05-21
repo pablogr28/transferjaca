@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.transferjaca.model.Player;
 import com.transferjaca.service.PlayerService;
+import com.transferjaca.service.TeamService;
 
 import jakarta.validation.Valid;
 
@@ -16,6 +17,9 @@ public class PlayerController {
 
     @Autowired
     private PlayerService playerService;
+    
+    @Autowired
+    private TeamService teamService;
 
     // Listar jugadores
     @GetMapping
@@ -35,6 +39,7 @@ public class PlayerController {
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         model.addAttribute("player", new Player());
+        model.addAttribute("teams", teamService.findAll());
         return "player/formPlayer";
     }
 

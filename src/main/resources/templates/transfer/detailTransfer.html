@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalle del Traspaso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+    <div th:replace="reusable/navbar :: navbar"></div>
+        <h2 class="text-center">Detalle del Traspaso</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <p>
+				  <strong>Jugador:</strong>
+				  <a th:href="@{/players/{id}(id=${transfer.player.id})}" th:text="${transfer.player.name}"></a>
+				</p>
+                <p><strong>Equipo Anterior:</strong> <span th:text="${transfer.fromTeam.name}"></span></p>
+                <p><strong>Nuevo Equipo:</strong> <span th:text="${transfer.toTeam.name}"></span></p>
+                <p><strong>Precio del Traspaso:</strong> <span th:text="${transfer.fee}"></span></p>
+            </div>
+        </div>
+        <a th:href="@{/transfers}" class="btn btn-primary">Volver al listado</a>
+    </div>
+</body>
+</html>
