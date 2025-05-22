@@ -28,6 +28,14 @@ public class TeamService {
     public Team save(Team player) {
         return teamRepository.save(player);
     }
+    
+    public Team edit(Team team) {
+    	Team t=teamRepository.findById(team.getId()).orElse(null);
+    	if(t!=null) {
+    		return teamRepository.save(team);
+    	}
+    	return null;
+    }
 
 
     public void deleteById(Long id) {

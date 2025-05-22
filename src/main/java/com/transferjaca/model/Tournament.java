@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,6 +31,10 @@ public class Tournament {
 	
 	@OneToMany(mappedBy="tournament")
 	private List<PlayerTournament> playerTournament;
+	
+	@OneToMany(mappedBy="tournamentMatch", fetch = FetchType.LAZY)
+	private List<Match> matches;
+
 
 	public Tournament(Long id, String name, String country, Integer year) {
 		super();
@@ -81,6 +86,14 @@ public class Tournament {
 
 	public void setPlayerTournament(List<PlayerTournament> playerTournament) {
 		this.playerTournament = playerTournament;
+	}
+
+	public List<Match> getMatches() {
+		return matches;
+	}
+
+	public void setMatches(List<Match> matches) {
+		this.matches = matches;
 	}
 
 	@Override

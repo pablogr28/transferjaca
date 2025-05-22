@@ -49,7 +49,7 @@
             <div class="text-danger" th:if="${#fields.hasErrors('footFavourite')}" th:errors="*{footFavourite}"></div>
         </div>
         
-        <div class="form-group mb-3">
+        <div class="form-group mb-3" th:if="${player.id == null}">
             <label for="toTeam">Equipo:</label>
             <select class="form-control" th:field="*{team.id}" id="team" required>
                 <option value="" disabled selected>Selecciona un equipo</option>

@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -36,6 +37,13 @@ public class Team {
 	
 	@OneToMany(mappedBy="toTeam")
 	private List<Transfer> transferIn;
+	
+	@OneToOne(mappedBy = "localTeam")
+	private Match matchLikeLocal;
+
+	@OneToOne(mappedBy = "visitTeam")
+	private Match matchLikeVisit;
+
 
 	public Team(Long id, String name, String country, Integer yearFundation) {
 		super();
@@ -103,6 +111,22 @@ public class Team {
 
 	public void setTransferIn(List<Transfer> transferIn) {
 		this.transferIn = transferIn;
+	}
+
+	public Match getMatchLikeLocal() {
+		return matchLikeLocal;
+	}
+
+	public void setMatchLikeLocal(Match matchLikeLocal) {
+		this.matchLikeLocal = matchLikeLocal;
+	}
+
+	public Match getMatchLikeVisit() {
+		return matchLikeVisit;
+	}
+
+	public void setMatchLikeVisit(Match matchLikeVisit) {
+		this.matchLikeVisit = matchLikeVisit;
 	}
 
 	@Override

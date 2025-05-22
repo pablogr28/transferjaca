@@ -7,4 +7,6 @@ import com.transferjaca.model.Player;
 
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 	
+	
+	
 }
