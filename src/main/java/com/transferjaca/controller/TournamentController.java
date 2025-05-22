@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import com.transferjaca.model.Match;
 import com.transferjaca.model.PlayerTournament;
 import com.transferjaca.model.Tournament;
 import com.transferjaca.service.PlayerTournamentService;
@@ -41,6 +42,10 @@ public class TournamentController {
         // Obtener los jugadores participantes de este torneo
         List<PlayerTournament> playerTournaments = tournament.getPlayerTournament();
         model.addAttribute("playerTournaments", playerTournaments);
+        
+        //Obtener los partidos que se han jugado en el torneo 
+        List<Match> matches=tournament.getMatches();
+        model.addAttribute("matches", matches);
         
 
         return "tournament/detailTournament";

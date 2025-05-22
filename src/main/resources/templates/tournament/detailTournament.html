@@ -40,6 +40,32 @@
                 </tr>
             </tbody>
         </table>
+        
+        <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Torneo</th>
+                <th>Local</th>
+                <th>Visitante</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="match : ${matches}">
+                <td th:text="${match.date}"></td>
+                <td th:text="${match.tournamentMatch.name}"></td>
+                <td>
+                        <a th:href="@{/teams/{id}(id=${match.localTeam.id})}" 
+                           th:text="${match.localTeam.name}"></a>
+                    </td>
+                <td>
+                        <a th:href="@{/teams/{id}(id=${match.visitTeam.id})}" 
+                           th:text="${match.visitTeam.name}"></a>
+                    </td>
+                <td th:text="${match.goals_home} + ' - ' + ${match.goals_visit}"></td>
+        </tbody>
+        </table>
 
         <a th:href="@{/tournaments}" class="btn btn-primary">Volver al listado</a>
     </div>

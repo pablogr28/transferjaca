@@ -38,11 +38,12 @@ public class Team {
 	@OneToMany(mappedBy="toTeam")
 	private List<Transfer> transferIn;
 	
-	@OneToOne(mappedBy = "localTeam")
-	private Match matchLikeLocal;
+	@OneToMany(mappedBy = "localTeam")
+	private List<Match> matchesAsLocal;
 
-	@OneToOne(mappedBy = "visitTeam")
-	private Match matchLikeVisit;
+	@OneToMany(mappedBy = "visitTeam")
+	private List<Match> matchesAsVisit;
+
 
 
 	public Team(Long id, String name, String country, Integer yearFundation) {
@@ -112,21 +113,21 @@ public class Team {
 	public void setTransferIn(List<Transfer> transferIn) {
 		this.transferIn = transferIn;
 	}
-
-	public Match getMatchLikeLocal() {
-		return matchLikeLocal;
+	
+	public List<Match> getMatchesAsLocal() {
+		return matchesAsLocal;
 	}
 
-	public void setMatchLikeLocal(Match matchLikeLocal) {
-		this.matchLikeLocal = matchLikeLocal;
+	public void setMatchesAsLocal(List<Match> matchesAsLocal) {
+		this.matchesAsLocal = matchesAsLocal;
 	}
 
-	public Match getMatchLikeVisit() {
-		return matchLikeVisit;
+	public List<Match> getMatchesAsVisit() {
+		return matchesAsVisit;
 	}
 
-	public void setMatchLikeVisit(Match matchLikeVisit) {
-		this.matchLikeVisit = matchLikeVisit;
+	public void setMatchesAsVisit(List<Match> matchesAsVisit) {
+		this.matchesAsVisit = matchesAsVisit;
 	}
 
 	@Override
